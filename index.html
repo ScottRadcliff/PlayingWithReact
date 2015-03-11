@@ -8,15 +8,54 @@
 <body>
   <div id="example"></div>
   <script type="text/jsx">
-    var HelloWorld = React.createClass({
+    var WeeklyExecution = React.createClass({
+      getInitialState: function() {
+        return {lastWeekPercent: 10, thisWeekPercent: 3}
+      },
+
       render: function() {
           return (
-            <p>Hello World</p>
+            <div>
+              <h2>Weekly Execution</h2>
+              <span id="last-week">{this.state.lastWeekPercent}%</span>
+              <span id="current-week">{this.state.thisWeekPercent}%</span>
+            </div>
           );
         }
     });
 
-    React.render(<HelloWorld />, document.body);
+
+    var PlanExecution = React.createClass({
+      getInitialState: function() {
+        return {averagePercent: 10, completePercent: 3, onTimePercent: 12}
+      },
+
+      render: function() {
+        return (
+          <div>
+            <h2>Plan Execution</h2>
+            <span id="average">{this.state.averagePercent}%</span>
+            <span id="complete">{this.state.completePercent}%</span>
+            <span id="ontime">{this.state.onTimePercent}%</span>
+          </div>
+          );
+        }
+    });
+
+
+    var ExecutionHeader = React.createClass({
+      render: function() {
+        return (
+          <div>
+            <h1>Week 1</h1>
+            <WeeklyExecution />
+            <PlanExecution />
+          </div>
+        )
+      }
+    });
+
+    React.render(<ExecutionHeader />, document.body);
   </script>
 </body>
 </html>
