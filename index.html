@@ -9,16 +9,12 @@
   <div id="example"></div>
   <script type="text/jsx">
     var WeeklyExecution = React.createClass({
-      getInitialState: function() {
-        return {lastWeekPercent: 10, thisWeekPercent: 3}
-      },
-
       render: function() {
           return (
             <div>
               <h2>Weekly Execution</h2>
-              <span id="last-week">{this.state.lastWeekPercent}%</span>
-              <span id="current-week">{this.state.thisWeekPercent}%</span>
+              <span id="last-week">{this.props.data.lastWeekPercent}%</span>
+              <span id="current-week">{this.props.data.thisWeekPercent}%</span>
             </div>
           );
         }
@@ -26,17 +22,13 @@
 
 
     var PlanExecution = React.createClass({
-      getInitialState: function() {
-        return {averagePercent: 10, completePercent: 3, onTimePercent: 12}
-      },
-
       render: function() {
         return (
           <div>
             <h2>Plan Execution</h2>
-            <span id="average">{this.state.averagePercent}%</span>
-            <span id="complete">{this.state.completePercent}%</span>
-            <span id="ontime">{this.state.onTimePercent}%</span>
+            <span id="average">{this.props.data.averagePercent}%</span>
+            <span id="complete">{this.props.data.completePercent}%</span>
+            <span id="ontime">{this.props.data.onTimePercent}%</span>
           </div>
           );
         }
@@ -48,14 +40,17 @@
         return (
           <div>
             <h1>Week 1</h1>
-            <WeeklyExecution />
-            <PlanExecution />
+            <WeeklyExecution data={this.props.data}/>
+            <PlanExecution data={this.props.data} />
           </div>
         )
       }
     });
 
-    React.render(<ExecutionHeader />, document.body);
+    var info = { lastWeekPercent: 10, thisWeekPercent: 3, averagePercent: 10, completePercent: 3, onTimePercent: 12 };
+
+
+    React.render(<ExecutionHeader data={info} />, document.body);
   </script>
 </body>
 </html>
