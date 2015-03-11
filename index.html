@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="http://fb.me/react-0.13.0.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.13.0.js"></script>
+</head>
+<body>
+  <div id="example"></div>
+  <script type="text/jsx">
+    var HelloWorld = React.createClass({
+      render: function() {
+          return (
+            <p>Hello World</p>
+          );
+        }
+    });
+
+    React.render(<HelloWorld />, document.body);
+  </script>
+</body>
+</html>
