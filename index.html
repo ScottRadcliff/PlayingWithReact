@@ -15,8 +15,8 @@
           return (
             <div>
               <h2>Weekly Execution</h2>
-              <span id="last-week">{this.props.data.lastWeekPercent}%</span>
-              <span id="current-week">{this.props.data.thisWeekPercent}%</span>
+              <p><span id="last-week">{this.props.data.lastWeekPercent}</span></p>
+              <p><span id="current-week">{this.props.data.thisWeekPercent}</span></p>
             </div>
           );
         }
@@ -28,9 +28,9 @@
         return (
           <div>
             <h2>Plan Execution</h2>
-            <span id="average">{this.props.data.averagePercent}%</span>
-            <span id="complete">{this.props.data.completePercent}%</span>
-            <span id="ontime">{this.props.data.onTimePercent}%</span>
+            <p><span id="average">{this.props.data.averagePercent}</span></p>
+            <p><span id="complete">{this.props.data.completePercent}</span></p>
+            <p><span id="ontime">{this.props.data.onTimePercent}</span></p>
           </div>
           );
         }
@@ -38,13 +38,17 @@
 
 
     var ExecutionHeader = React.createClass({
-      setInitialState: function() {
-        data = [];
+      getInitialState: function() {
+        return {data: []};
+      },
+
+      componentDidMount: function() {
          $.ajax({
-          url: "http://localhost:4567/data.json",
+          url: "http://localhost:4000/data.json",
+          dataType: "json", 
           success: function(response) {
-            // setState(response);
-          },
+            this.setState({data: response});
+          }.bind(this)
         });
       },
 
@@ -52,24 +56,24 @@
         return (
           <div>
             <h1>Week 1</h1>
-            <WeeklyExecution data={this.state.data}/>
+            <WeeklyExecution data={this.state.data} />
             <PlanExecution data={this.state.data} />
           </div>
         )
       }
     });
 
-    var info = $.ajax({
-      url: "http://localhost:4567/data.json",
+    /**var info = $.ajax({
+      url: "http://localhost:4000/data.json",
       success: function(response) {
         console.log(response);
       },
       failure: function(failure) {
         console.log(failure);
       }
-    });
+    });**/
 
-    React.render(<ExecutionHeader data={info} />, document.body);
+    React.render(<ExecutionHeader/>, document.body);
   </script>
 </body>
 </html>
