@@ -38,11 +38,7 @@
 
 
     var ExecutionHeader = React.createClass({
-      getInitialState: function() {
-        return {data: []};
-      },
-
-      componentDidMount: function() {
+      loadDataFromServer: function() {
          $.ajax({
           url: "http://localhost:4000/data.json",
           dataType: "json", 
@@ -50,6 +46,15 @@
             this.setState({data: response});
           }.bind(this)
         });
+      },
+
+      getInitialState: function() {
+        return {data: []};
+      },
+
+      componentDidMount: function() {
+        this.loadDataFromServer();
+        setInterval(this.loadDataFromServer, 3000);
       },
 
       render: function() {
@@ -62,16 +67,6 @@
         )
       }
     });
-
-    /**var info = $.ajax({
-      url: "http://localhost:4000/data.json",
-      success: function(response) {
-        console.log(response);
-      },
-      failure: function(failure) {
-        console.log(failure);
-      }
-    });**/
 
     React.render(<ExecutionHeader/>, document.body);
   </script>

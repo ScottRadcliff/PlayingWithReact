@@ -9,8 +9,8 @@ end
 
 get "/data.json" do
   data = {
-    lastWeekPercent: 12,
-    thisWeekPercent: 3,
+    lastWeekPercent: 122,
+    thisWeekPercent: 300,
     averagePercent: 10,
     completePercent: 3,
     onTimePercent: 12 }
