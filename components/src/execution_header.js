@@ -7,6 +7,10 @@ var ExecutionHeader = React.createClass({
         this.setState({data: response});
       }.bind(this)
     });
+ },
+
+  updateServer: function(total) {
+    console.log(total);
   },
 
   getInitialState: function() {
@@ -24,6 +28,7 @@ var ExecutionHeader = React.createClass({
         <h1>Week 1</h1>
         <WeeklyExecution data={this.state.data} />
         <PlanExecution data={this.state.data} />
+        <UpdateForm onFormSubmit={this.updateServer} />
       </div>
     )
   }
