@@ -13,6 +13,6 @@ get "/data.json" do
     thisWeekPercent: 300,
     averagePercent: 10,
     completePercent: 3,
-    onTimePercent: 12 }
+    onTimePercent: 120 }
   json data
 end
