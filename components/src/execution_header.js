@@ -10,7 +10,14 @@ var ExecutionHeader = React.createClass({
  },
 
   updateServer: function(total) {
-    console.log(total);
+    $.ajax({
+      url: "http://localhost:4000/update",
+      method: "POST",
+      data: {total: total.total},
+      success: function(response) {
+        this.setState({data: response});
+      }.bind(this)
+    });
   },
 
   getInitialState: function() {
@@ -19,7 +26,6 @@ var ExecutionHeader = React.createClass({
 
   componentDidMount: function() {
     this.loadDataFromServer();
-    setInterval(this.loadDataFromServer, 3000);
   },
 
   render: function() {
