@@ -4,9 +4,11 @@
   <meta charset="utf-8">
   <script src="http://fb.me/react-0.13.0.js"></script>
   <script src="http://fb.me/JSXTransformer-0.13.0.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
   <div id="example"></div>
+
   <script type="text/jsx">
     var WeeklyExecution = React.createClass({
       render: function() {
@@ -36,19 +38,36 @@
 
 
     var ExecutionHeader = React.createClass({
+      setInitialState: function() {
+        data = [];
+         $.ajax({
+          url: "http://localhost:4567/data.json",
+          success: function(response) {
+            // setState(response);
+          },
+        });
+      },
+
       render: function() {
         return (
           <div>
             <h1>Week 1</h1>
-            <WeeklyExecution data={this.props.data}/>
-            <PlanExecution data={this.props.data} />
+            <WeeklyExecution data={this.state.data}/>
+            <PlanExecution data={this.state.data} />
           </div>
         )
       }
     });
 
-    var info = { lastWeekPercent: 10, thisWeekPercent: 3, averagePercent: 10, completePercent: 3, onTimePercent: 12 };
-
+    var info = $.ajax({
+      url: "http://localhost:4567/data.json",
+      success: function(response) {
+        console.log(response);
+      },
+      failure: function(failure) {
+        console.log(failure);
+      }
+    });
 
     React.render(<ExecutionHeader data={info} />, document.body);
   </script>
