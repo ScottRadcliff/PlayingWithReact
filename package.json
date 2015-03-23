@@ -1,11 +1,15 @@
 {
   "name": "Playing_With_React",
   "version": "0.0.0",
-  "description": "",
+  "description": "Getting to know React and Flux",
   "main": "js/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": ""
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Scott Radcliff",
+  "dependencies": {
+    "flux": "2.0.1",
+    "react": "0.13.1",
+    "object-assign": "^1.0.0"
+  }
 }
