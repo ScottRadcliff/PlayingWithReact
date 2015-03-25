@@ -9,7 +9,7 @@ var UpdateForm = React.createClass({displayName: "UpdateForm",
   render: function() {
     return (
       React.createElement("form", {onSubmit: this.handleSubmit}, 
-        React.createElement("input", {type: "text", placeholder: "Enter a number", ref: "total"}), 
+        React.createElement("input", {type: "txt", placeholder: "Enter a number", ref: "total"}), 
         React.createElement("input", {type: "submit", value: "Go!"})
       )
     )

@@ -9,7 +9,7 @@ var UpdateForm = React.createClass({
   render: function() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="txt" placeholder="Enter a number" ref="total" />
+        <input type="text" placeholder="Enter a number" ref="total" />
         <input type="submit" value="Go!" />
       </form>
     )
