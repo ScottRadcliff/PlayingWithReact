@@ -1,10 +1,12 @@
 var React = require('react');
+var PlanActions = require("../actions/plan_actions.js");
 
 var UserLogin = React.createClass({
   login: function(e) {
     e.preventDefault();
-    var username = React.findDOMNode(this.refs.username).value;
-    var password = React.findDOMNode(this.refs.password).value;
+    console.log(PlanActions.all());
+    var username = this.refs.username.getDOMNode().value;
+    var password = this.refs.password.getDOMNode().value;
 
     $.ajax({
       url: "http://localhost:3000/api/sessions",
