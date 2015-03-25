@@ -1,3 +1,5 @@
+var React = require('react');
+
 var UserLogin = React.createClass({
   login: function(e) {
     e.preventDefault();
@@ -29,3 +31,4 @@ var UserLogin = React.createClass({
   }
 });
 
+module.exports = UserLogin;

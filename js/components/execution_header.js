@@ -1,3 +1,8 @@
+var React = require('react');
+var WeeklyExecution = require("./weekly_execution.js");
+var PlanExecution = require("./plan_execution.js");
+var UpdateForm = require("./update_form.js");
+
 var ExecutionHeader = React.createClass({
   loadDataFromServer: function() {
      $.ajax({
@@ -40,3 +45,4 @@ var ExecutionHeader = React.createClass({
   }
 });
 
+module.exports = ExecutionHeader;

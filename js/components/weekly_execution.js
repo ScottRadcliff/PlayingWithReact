@@ -1,3 +1,5 @@
+var React = require('react');
+
   var WeeklyExecution = React.createClass({
     render: function() {
         return (
@@ -10,3 +12,4 @@
       }
   });
 
+module.exports = WeeklyExecution;

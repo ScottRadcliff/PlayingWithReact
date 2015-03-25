@@ -1,3 +1,5 @@
+var React = require('react');
+
 var PlanExecution = React.createClass({
   render: function() {
     return (
@@ -10,4 +12,6 @@ var PlanExecution = React.createClass({
       );
     }
 });
+
+module.exports = PlanExecution;
 

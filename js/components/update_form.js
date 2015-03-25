@@ -1,9 +1,11 @@
+var React = require('react');
+
 var UpdateForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
     var total = React.findDOMNode(this.refs.total).value;
     this.props.onFormSubmit({total: total})
-    React.findDOMNode(this.refs.total).value = '';
+     React.findDOMNode(this.refs.total).value = '';
   },
 
   render: function() {
@@ -15,3 +17,5 @@ var UpdateForm = React.createClass({
     )
   }
 });
+
+module.exports = UpdateForm;
