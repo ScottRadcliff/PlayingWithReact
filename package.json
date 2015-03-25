@@ -1,0 +1,11 @@
+{
+  "name": "Playing_With_React",
+  "version": "0.0.0",
+  "description": "Getting up to speed with React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Scott Radcliff",
+  "license": "ISC"
+}
